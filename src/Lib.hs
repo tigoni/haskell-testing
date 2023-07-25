@@ -1,8 +1,11 @@
 module Lib
-    ( isPalindrome
+    ( isPalindrome, preProcess
     ) where
+import Data.Char(isPunctuation)
+
+preProcess :: String -> String
+preProcess = filter (not . isPunctuation)
 
 isPalindrome :: String -> Bool
 isPalindrome str = cleanStr == reverse cleanStr
-    where cleanStr =
-           filter (not . (`elem` ['!', '.'])) str
+    where cleanStr = preProcess str

@@ -5,8 +5,8 @@ import Data.Char(isPunctuation)
 import Data.Text as T
 
 preProcess :: T.Text -> T.Text
-preProcess = filter (not . isPunctuation)
+preProcess = T.filter (not . isPunctuation)
 
 isPalindrome :: T.Text -> Bool
-isPalindrome str = cleanStr == reverse cleanStr
+isPalindrome str = cleanStr == T.reverse cleanStr
     where cleanStr = preProcess str

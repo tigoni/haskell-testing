@@ -21,6 +21,7 @@ description:         Please see the README on GitHub at <https://github.com/gith
 
 dependencies:
 - base >= 4.7 && < 5
+- text
 
 ghc-options:
 - -Wall
@@ -32,6 +33,7 @@ ghc-options:
 - -Wmissing-home-modules
 - -Wpartial-fields
 - -Wredundant-constraints
+- -XOverloadedStrings
 
 library:
   source-dirs: src
@@ -47,6 +49,9 @@ executables:
     dependencies:
     - palindrome-testing
 
+    extensions:
+      OverloadedStrings
+
 tests:
   palindrome-testing-test:
     main:                Spec.hs
@@ -58,4 +63,4 @@ tests:
     dependencies:
     - palindrome-testing
     - QuickCheck
-    - text
+    - quickcheck-instances

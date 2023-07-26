@@ -1,11 +1,12 @@
 import Lib
 import Data.Char
 import Test.QuickCheck
+import Data.Text as T
 
 prop_PunctuationInvariant text = preProcess text == preProcess noPuncText where
     noPuncText = filter (not . isPunctuation) text
 
-assert :: Bool -> String -> String -> IO ()
+assert :: Bool -> T.Text -> T.Text -> IO ()
 assert test passStatement failStatement = 
     if test 
     then putStrLn passStatement

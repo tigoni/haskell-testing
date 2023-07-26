@@ -2,10 +2,11 @@ module Lib
     ( isPalindrome, preProcess
     ) where
 import Data.Char(isPunctuation)
+import Data.Text as T
 
-preProcess :: String -> String
+preProcess :: T.Text -> T.Text
 preProcess = filter (not . isPunctuation)
 
-isPalindrome :: String -> Bool
+isPalindrome :: T.Text -> Bool
 isPalindrome str = cleanStr == reverse cleanStr
     where cleanStr = preProcess str

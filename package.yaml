@@ -58,3 +58,4 @@ tests:
     dependencies:
     - palindrome-testing
     - QuickCheck
+    - text
